@@ -1,0 +1,416 @@
+/************************************************************************/
+/*********************** GLOBAL DEFAULTS & RESETS ***********************/
+/************************************************************************/
+
+:root {
+    --body-font: Helvetica, Arial, sans-serif;
+    --heading-font: serif;
+    --section-padding: 1rem;
+    --link-color-example: black;
+    font-size: $mainFontSize;
+}
+
+@include tablet {
+    :root {
+        --section-padding: 2rem;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+*:focus,
+*:active {
+  outline: none;
+}
+
+
+html {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+    scroll-padding-top: 4rem;
+}
+
+body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-size: 4.45vw;
+    background-color: $white;
+    color: $baseColor;
+    position: relative;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+    box-sizing: border-box;
+    font-family: OpenSans-Regular;
+    @include tablet {
+    	font-size: $mainFontSize;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $primary;
+    line-height: 1.25;
+    margin: 0.25em 0;
+    font-family: OpenSans-Bold;
+}
+h1 {
+	font-size: 2em;
+    @include tablet {
+        font-size: 2.6em;
+    }
+}
+h2 {
+	font-size: 1.75em;
+    @include tablet {
+        font-size: 2.15em;
+    }
+}
+h3 {
+	font-size: 1.6em;
+    font-family: OpenSans-SemiBold;
+    @include tablet {
+        font-size: 1.85em;
+    }
+}
+h4 {
+	font-size: 1.25em;
+    font-family: OpenSans-SemiBold;
+    @include tablet {
+        font-size: 1.65em;
+    }
+}
+p {
+    font-size: 1.15em;
+    line-height: 1.2;
+}
+
+a {
+    color: $baseColor;
+    text-decoration: none;
+    transition: 0.25s;
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+        opacity: 0.8;
+       
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+strong, b {
+    font-family: OpenSans-Bold;
+}
+/************************************************************************/
+/***************************** GLOBAL CLASSES ***************************/
+/************************************************************************/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.align--center {
+    text-align: center;
+}
+
+.align--left {
+    text-align: left;
+}
+
+.align--right {
+    text-align: right;
+}
+
+.heading {
+    font-size: 2em;
+    color: $secondary;
+    font-family: OpenSans-Bold;
+    @include tablet {
+        font-size: 2em;
+    }
+}
+
+.subheading {
+    font-size: 1.40em;
+    font-family: OpenSans-Light;
+    color: $secondary;
+}
+
+.section {
+    width: 100%;
+    max-width: 1180px;
+    padding: 4em 1em;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    @include tablet {
+        padding: 4em 2em;
+    }
+}
+
+.section-wrapper {
+    width: 100%;
+    max-width: 1180px;
+	margin: 0 auto;
+    z-index: 1;
+    position: relative;
+}
+
+.image-wrapper {
+    width: var(--image-width, auto);
+    height: var(--image-height, auto);
+    margin: 0 auto;
+}
+
+.btn {
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+    margin: 0.25em 0;
+    transition: 0.25s;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: OpenSans-Bold;
+    @include borderRadius();
+    @include dropShadow();
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-primary {	
+    color: $white;
+    background-color: $primary;
+}
+
+.btn-secondary {
+    color: $white;
+    background-color: $secondary;
+}
+.btn-white {
+    color: $secondary;
+    background-color: $white;
+}
+
+.btn-back {
+    border: 0;
+    cursor: pointer;
+    color: $secondary;
+    background-color: $white;
+}
+/******************* HELPERS *********************/
+
+.desktop-only {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
+.mobile-only {
+    display: block;
+    @include tablet {
+        display: none;
+    }
+}
+
+.black {
+    color: $black;
+}
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+.no-padded-sides {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.no-padded-top {
+    padding-top: 0;
+}
+
+.no-padded-bottom {
+    padding-bottom: 0;
+}
+
+.hide-on-desktop {
+    display: block;
+    @include tablet {
+        display: none;
+    }
+}
+
+.hide-on-mobile {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    z-index: 1;
+    margin: 2em auto;
+
+    iframe,
+    object,
+    embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+}
+
+/******************* NATIVE PAGES *********************/
+.section.error {
+    @include tablet {
+        min-height: calc(100vh - 315px);
+    }
+}
+
+/******************* SLICK SLIDER *********************/
+.slick-slider {
+    .slick-track {
+        display: flex;
+        .slick-slide {
+            display: flex;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .slick-dots  {
+        bottom: -3em;
+        li {
+            button:before {
+                opacity: 1;
+                font-size: 15px;
+                color: $secondary;
+            }
+            &.slick-active {
+                button:before {
+                    opacity: 1;
+                    color: $primary;
+                }
+            }
+        }
+    }
+    .slick-next {
+        right: -15px;
+    }
+    .slick-prev {
+        left: -15px;
+    }
+}
+/********* BLOG SINGLE AND ARCHIVE PAGE STYLES **********/
+.main--archive .category li a,
+.main--single .category li a,
+.main--single .btn-back {
+    color:  $primary;
+}
+
+.main--archive #wp-block-archives-3,
+.main--single #wp-block-archives-3,
+.main--archive #wp-block-categories-1,
+.main--single #wp-block-categories-1 {
+    padding: 0.75em 0.5em;
+    width: 100%;
+    @include dropShadow();
+} 
+
+
+/********* BUTTON FOR DOWNLOAD CONTENT AND ITS FORM **********/
+.dlm-nf-download-link a, .gform_button {
+    @extend .btn;
+    @extend .btn-primary;
+    border: 0;
+}
+
+
+.border, .border-one, .border-two, .border-three, 
+.box-one, .box-two, .box-three {
+    pointer-events: none;
+}
+
+//BLOG SIDEBAR CATEGORY LIST STYLE EDITS
+.wp-block-categories-list.wp-block-categories,
+.wp-block-archives-list.wp-block-archives {
+    list-style: none;
+    padding-left: 0;
+}
+.wp-block-latest-posts.wp-block-latest-posts__list li,
+.wp-block-categories-list.wp-block-categories li {
+    margin: 1.5em 0;
+}
+//BLOG SIDEBAR CATEGORY LIST STYLE EDITS
+.wp-block-latest-posts {
+    a {
+        &:hover {
+            color: $secondary;
+        }
+    }
+}
+#wp-block-archives-3,
+#wp-block-categories-1 {
+    padding: 1em 0.5em;
+    width: 70%;
+}
+.wp-block-search__inside-wrapper {
+    padding-top: 1em;;
+}
+.wp-block-search__label, .wp-block-archives label {
+    display: none;
+}
+.wp-block-search__button {
+    background: $secondary;
+    color: $white;
+    text-transform: uppercase;
+    @include borderRadius();
+    @include transitionAll();
+    &:hover {
+        background-color: $primary;
+    }
+}
+.wp-block-search__input {
+    @include borderRadius();
+}

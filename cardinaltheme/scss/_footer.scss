@@ -1,0 +1,137 @@
+/************************************************************************/
+/**************************** FOOTER STYLES *****************************/
+/************************************************************************/
+
+.footer {
+    text-align: center;
+    @include footerDropShadow();
+    h3 {
+        color: $black;
+        font-size: 1em;
+        
+    }
+    @include tablet {
+        .section--footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 2em;
+            font-size: 0.9em;
+            .col {
+                flex-basis: calc(33% - 1em);
+                text-align: left;
+                .menu-container, 
+                .info-container {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    @include desktop {
+        .col {
+            &:first-child {
+                flex-basis: 40%;
+            }
+            &:nth-child(2) {
+                flex-basis: 20%;
+            }
+            &:nth-child(3) {
+                flex-basis: 20%;
+            }
+        }
+    }
+    .logo-container {
+        margin: 0 auto;
+        img {
+            max-width: 15em;
+        }
+    }
+    .icons-container {
+        margin: 1em 0;
+        .icon {
+            margin: 0 0.25em;
+            img {
+                width: 2em;
+                height: 2em;
+                @include transitionAll();
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        .icon_v2 {
+            margin: 0 0.25em;
+            img {
+                width: 4em;
+                height: 4em;
+                @include desktop {
+                    width: 5em;
+                    height: 5em;
+                }
+                @include transitionAll();
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    .menu-container {
+        .footer-nav {
+            padding-left: 0;
+            list-style-type: none;
+            text-align: center;
+            li {
+                padding: 0.5em 0;
+                &.btn {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    width: 10em;
+                    height: 2.5em;
+                    min-width: 10em;
+                    background-color: $secondary;
+                    &:hover {
+                        a {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+            @include tablet {
+                flex-basis: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                li {
+                    padding: 1em 0;
+                }
+            }
+        }
+    }
+    .info-container {
+        text-align: center;
+        a {
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+    .bottom-container {
+        border-top: 1px solid $gray;
+        margin-top: 3em;
+        padding-top: 1em;
+        font-size: 0.75em;
+        color: $gray;
+        @include tablet {
+            flex-basis: 100%;
+            margin-top: 1em;
+            text-align: left;
+        }
+        a {
+            color: $gray;
+        }
+    }
+}
